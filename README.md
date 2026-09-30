@@ -30,7 +30,7 @@ npm run dev
 | `/team` | 团队 |
 | `/perspectives` | 观点文章列表，`/perspectives/<slug>` 为文章页 |
 | `/pitch` | 创始人投递项目：四部分申请表（你、公司、融资、项目故事）+ 我们看重什么、之后的流程。导航右上角的 "Pitch us" 按钮就是这里 |
-| `/contact` | 通用联系：留言表单（媒体、LP、招聘等）+ 各类联系邮箱，创始人会被引导到 `/pitch` |
+| `/contact` | 通用联系：留言表单（媒体、LP、招聘等），创始人会被引导到 `/pitch`。网站暂时不公开任何邮箱 |
 | `/legal/disclosures`、`/legal/privacy`、`/legal/terms` | 免责声明、隐私政策、使用条款 |
 
 ## 改内容：只需要改 `content/` 目录
@@ -39,7 +39,7 @@ npm run dev
 
 | 文件 | 内容 |
 |---|---|
-| `content/site.ts` | 公司名、域名、各类邮箱、社交链接、导航 |
+| `content/site.ts` | 公司名、网址、社交链接、导航 |
 | `content/portfolio.ts` | 投资组合。加一家公司就加一条，首页和 `/portfolio` 的格子会自动出现 |
 | `content/focus.ts` | 七大投资领域的文案 |
 | `content/firm.ts` | 使命与原则 |
@@ -81,7 +81,7 @@ npm run dev
 
 ## 上线前需要替换的占位内容
 
-- [ ] `content/site.ts`：确认域名 `url`，确认各邮箱地址（目前是 `@teralvencapital.com` 的占位），填上 LinkedIn / X 链接（留空则不显示）
+- [ ] `content/site.ts`：填上 LinkedIn / X 链接（留空则不显示）。网站现在不列任何邮箱，有了公司邮箱再决定要不要公开
 - [ ] `content/team.ts`：三位成员是占位（"Partner Name"），换成真实姓名、职位、简介、LinkedIn；头像放到 `public/team/`，填 `photo` 字段（没有头像时显示姓名首字母）
 - [ ] `content/portfolio.ts`：Rim 的 `stage`（目前写的是 "Early stage"）、`invested`（目前是 2026）；如有创始人信息可填 `builders`
 - [ ] `content/perspectives.ts`：文章的发布日期 `date`
@@ -92,7 +92,7 @@ npm run dev
 
 两个表单共用 `lib/inbox.ts`：`/pitch` 提交到 `app/api/pitch/route.ts`，`/contact` 提交到 `app/api/contact/route.ts`。投递方式二选一（都配置时优先 Resend）：
 
-1. **Resend 邮件（推荐）**：设置 `RESEND_API_KEY`、`CONTACT_FROM_EMAIL`（发件域名需在 Resend 验证）、`CONTACT_TO_EMAIL`（留言收件人），可选 `PITCH_TO_EMAIL`（pitch 收件人，不填就发到 `CONTACT_TO_EMAIL`）。邮件标题形如 "Pitch: 公司名 (Seed, Media & Entertainment)"，回复地址就是对方的邮箱，直接点回复即可。
+1. **Resend 邮件（推荐）**：设置 `RESEND_API_KEY`、`CONTACT_FROM_EMAIL`（发件域名需在 Resend 验证；还没有域名时可以先填 `Teralven Website <onboarding@resend.dev>`，但这样只能发到你注册 Resend 用的那个邮箱）、`CONTACT_TO_EMAIL`（留言收件人），可选 `PITCH_TO_EMAIL`（pitch 收件人，不填就发到 `CONTACT_TO_EMAIL`）。邮件标题形如 "Pitch: 公司名 (Seed, Media & Entertainment)"，回复地址就是对方的邮箱，直接点回复即可。
 2. **Webhook**：设置 `CONTACT_WEBHOOK_URL`（Google Apps Script、Power Automate、Zapier 等）和 `CONTACT_SECRET`。每条数据带 `type: "pitch"` 或 `"message"`，可以进同一张表。
 
 Pitch 表单必填：姓名、邮箱、职位、公司名、一句话介绍、领域、阶段、融资状态、项目介绍、隐私同意；其余（LinkedIn、官网、所在地、融资额、BP 链接、进展、来源、引荐人）选填。BP 用链接（DocSend / Google Drive / Dropbox），不做文件上传。
@@ -101,7 +101,7 @@ Pitch 表单必填：姓名、邮箱、职位、公司名、一句话介绍、�
 cp .env.example .env.local
 ```
 
-两者都没配置时，表单会提示"尚未连接"，并引导访客直接发邮件。接口自带：字段校验（下拉选项只接受表单里的值）、邮箱校验、链接清洗、蜜罐防机器人、每个 IP 每分钟 5 次限流。
+两者都没配置时，表单会提示"尚未连接"。网站上没有列邮箱，访客就没有别的办法联系你们，所以上线前一定要配好其中一种。接口自带：字段校验（下拉选项只接受表单里的值）、邮箱校验、链接清洗、蜜罐防机器人、每个 IP 每分钟 5 次限流。
 
 ## 投资组合（All investments）
 
@@ -122,7 +122,9 @@ cp .env.example .env.local
 
 ## 部署到 Vercel
 
-导入仓库即可，默认 Next.js 设置可用。在 Project → Settings → Environment Variables 里填联系表单的变量。绑定正式域名后，把 `content/site.ts` 的 `url` 改成正式域名（用于 sitemap、分享卡片等）。
+导入仓库即可，默认 Next.js 设置可用。在 Project → Settings → Environment Variables 里填联系表单的变量，改完要重新部署一次才生效。网址（用于 sitemap、分享卡片等）会自动用 Vercel 给项目的正式域名，绑定自己的域名后也会自动换过去；部署在别的平台时，用环境变量 `SITE_URL` 指定，例如 `https://www.teralvencapital.com`。
+
+注意：Vercel 免费的 Hobby 方案只允许非商业用途，公司官网按规定要用 Pro 方案。
 
 ## 设计说明
 
@@ -130,5 +132,5 @@ cp .env.example .env.local
 - **地平线**（`components/ui/horizon.tsx`）：品牌主视觉，纯 CSS 渐变绘制，没有图片、没有模糊滤镜，任何尺寸都清晰。首页、内页页头、结尾 CTA、404 页用的是它的三个变体。
 - **领域图形**（`components/ui/glyph.tsx`）：七个投资领域各一个线条图形，SVG 计算生成。
 - **动效**：首屏晨光升起、标题逐行浮现、滚动渐显、星空闪烁；系统开启"减少动态效果"时全部关闭。
-- **分享卡片**：`app/opengraph-image.tsx` 在构建时生成（藏青底 + logo + 首屏标语）。
+- **分享卡片**：`app/opengraph-image.tsx` 在构建时生成（黑底地平线 + logo + 首屏标语）。
 - **图片**：图片建议和生图提示词见 [docs/image-brief.md](docs/image-brief.md)。

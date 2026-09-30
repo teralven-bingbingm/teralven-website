@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import type { CSSProperties } from "react";
 import { Closing } from "@/components/site/closing";
 import { PageHeader } from "@/components/site/page-header";
-import { ArrowUpRight, LinkedIn } from "@/components/ui/icons";
+import { ArrowRight, LinkedIn } from "@/components/ui/icons";
 import { focusById } from "@/content/focus";
-import { SITE } from "@/content/site";
 import { TEAM, initials } from "@/content/team";
 import styles from "./team.module.css";
 
@@ -69,9 +69,9 @@ export default function TeamPage() {
               <p className="lede">
                 We are always glad to meet exceptional investors, operators and advisors. If our principles resonate, write to us. Tell us what you have built and what you want to build next.
               </p>
-              <a href={`mailto:${SITE.email.careers}`} className="link">
-                {SITE.email.careers} <ArrowUpRight />
-              </a>
+              <Link href="/contact" className="link">
+                Write to us <ArrowRight />
+              </Link>
             </div>
           </div>
         </div>

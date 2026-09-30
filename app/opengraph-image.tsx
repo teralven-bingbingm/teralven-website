@@ -4,7 +4,7 @@ import { ImageResponse } from "next/og";
 import { SITE } from "@/content/site";
 
 /**
- * The picture shown when a link to the site is shared: the firm's logo and line over a navy
+ * The picture shown when a link to the site is shared: the firm's logo and line over a black
  * horizon at first light, drawn at build time. The headline is set in Newsreader when Google
  * Fonts can be reached during the build, and in the default face otherwise.
  */
@@ -37,7 +37,7 @@ export default async function OpenGraphImage() {
 
   return new ImageResponse(
     (
-      <div style={{ position: "relative", display: "flex", width: "100%", height: "100%", background: "#061529", overflow: "hidden" }}>
+      <div style={{ position: "relative", display: "flex", width: "100%", height: "100%", background: "#08090b", overflow: "hidden" }}>
         {/* The light behind the planet. Stops end by 70%: the renderer measures to the far corner. */}
         <div
           style={{
@@ -60,7 +60,7 @@ export default async function OpenGraphImage() {
             height: 3800,
             borderRadius: 1900,
             display: "flex",
-            background: "#030b18",
+            background: "#050607",
             boxShadow: "0 -1px 0 0 rgba(255,242,218,0.9), 0 -8px 30px 0 rgba(228,186,112,0.35)",
           }}
         />

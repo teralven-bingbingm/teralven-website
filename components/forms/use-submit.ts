@@ -6,18 +6,17 @@ export type Status = { state: "idle" } | { state: "sending" } | { state: "sent" 
 
 /**
  * Sends a form to one of the site's inboxes (/api/pitch, /api/contact) as JSON and keeps its
- * status. `messages` turns the server's error codes into words; anything else falls back to
- * `elsewhere`, a line saying where else to reach the firm.
+ * status. `messages` turns the server's error codes into words.
  */
-export function useSubmit(endpoint: string, elsewhere: string, messages: Record<string, string> = {}) {
+export function useSubmit(endpoint: string, messages: Record<string, string> = {}) {
   const [status, setStatus] = useState<Status>({ state: "idle" });
 
-  const fallback = (lead: string) => `${lead} Please try again in a moment, or ${elsewhere}`;
+  const fallback = (lead: string) => `${lead} Please try again in a moment.`;
   const known: Record<string, string> = {
     email: "Please check the email address.",
     fields: "Please fill in the required fields.",
     slow_down: "That was a lot of tries. Please wait a minute and send it again.",
-    not_connected: `This form isn't connected yet. Please ${elsewhere}`,
+    not_connected: "This form isn't connected yet. Please try again soon.",
     ...messages,
   };
 

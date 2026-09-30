@@ -1,25 +1,27 @@
 /**
- * The firm's name, addresses and navigation. Everything the header, the footer and the
- * metadata say about Teralven comes from here.
+ * The firm's name, address on the web and navigation. Everything the header, the footer and
+ * the metadata say about Teralven comes from here. The firm has no public mailboxes yet, so the
+ * site lists none: visitors write through /contact, and founders through /pitch.
  *
- * TODO before launch: confirm the domain and the mailboxes below, and add the social links
- * (an empty string hides a link).
+ * TODO before launch: add the social links (an empty string hides a link).
  */
+
+/**
+ * Where the site lives, for link previews, the sitemap and robots.txt: SITE_URL when it is set,
+ * then the production domain Vercel gives the project, then the firm's own domain.
+ */
+const url =
+  process.env.SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "https://www.teralvencapital.com");
 
 export const SITE = {
   name: "Teralven Capital",
   legalName: "Teralven Capital LLC",
   shortName: "Teralven",
-  url: "https://www.teralvencapital.com",
+  url,
   tagline: "Early conviction. Enduring companies.",
   description:
     "Teralven Capital is a venture firm partnering with founders at the frontier across AI, media, enterprise software, fintech, health, consumer and frontier technology.",
-  email: {
-    general: "hello@teralvencapital.com",
-    press: "press@teralvencapital.com",
-    investors: "ir@teralvencapital.com",
-    careers: "careers@teralvencapital.com",
-  },
   social: {
     linkedin: "",
     x: "",

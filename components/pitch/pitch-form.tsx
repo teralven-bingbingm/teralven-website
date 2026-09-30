@@ -48,7 +48,7 @@ function Choice({ name, label, options, required = false }: { name: string; labe
  * required; the rest helps. The "fax" field is a trap for bots.
  */
 export function PitchForm() {
-  const { status, submit, reset } = useSubmit("/api/pitch", "reach us through the contact page.", {
+  const { status, submit, reset } = useSubmit("/api/pitch", {
     fields: "Please fill in the required fields: your name, role, company, one line, focus area, stage, fundraising and what you are building.",
     consent: "Please confirm that we may keep your pitch to review it.",
   });

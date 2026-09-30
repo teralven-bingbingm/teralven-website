@@ -4,14 +4,13 @@ import { useSubmit } from "@/components/forms/use-submit";
 import styles from "@/components/forms/form.module.css";
 import { ArrowRight } from "@/components/ui/icons";
 import { TOPIC_OPTIONS } from "@/content/pitch";
-import { SITE } from "@/content/site";
 
 /**
  * A message to the firm: press, investor relations, careers or anything else. Pitches have
  * their own page and form (/pitch). Posts to /api/contact (lib/inbox.ts).
  */
 export function MessageForm() {
-  const { status, submit, reset } = useSubmit("/api/contact", `write to ${SITE.email.general}.`, {
+  const { status, submit, reset } = useSubmit("/api/contact", {
     fields: "Please fill in your name, email and message.",
   });
 

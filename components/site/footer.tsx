@@ -39,9 +39,6 @@ export function Footer() {
                 <li>
                   <Link href="/pitch">Pitch us</Link>
                 </li>
-                <li>
-                  <a href={`mailto:${SITE.email.general}`}>{SITE.email.general}</a>
-                </li>
                 {social.map(item => (
                   <li key={item.label}>
                     <a href={item.href} target="_blank" rel="noreferrer" className={styles.social}>

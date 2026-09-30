@@ -137,10 +137,6 @@ export function Nav() {
               </Link>
             ))}
           </nav>
-          <div className={styles.menuFoot}>
-            <p className="meta">General</p>
-            <a href={`mailto:${SITE.email.general}`}>{SITE.email.general}</a>
-          </div>
         </div>
       </div>
     </>

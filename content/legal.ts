@@ -90,7 +90,7 @@ export const LEGAL_DOCS: LegalDoc[] = [
       {
         heading: "Retention and your choices",
         paragraphs: [
-          `We keep information only as long as it is needed for the purposes above or as required by law. You may ask us to access, correct or delete your information by writing to ${SITE.email.general}.`,
+          `We keep information only as long as it is needed for the purposes above or as required by law. You may ask us to access, correct or delete your information through the contact page of this website.`,
         ],
       },
       {
@@ -137,7 +137,7 @@ export const LEGAL_DOCS: LegalDoc[] = [
       },
       {
         heading: "Changes and contact",
-        paragraphs: [`We may update these terms at any time by posting a new version here. Questions: ${SITE.email.general}.`],
+        paragraphs: ["We may update these terms at any time by posting a new version here. Questions can be sent through the contact page of this website."],
       },
     ],
   },

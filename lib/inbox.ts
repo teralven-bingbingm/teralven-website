@@ -7,7 +7,7 @@
  *   2. Otherwise, with CONTACT_WEBHOOK_URL, it is posted as JSON to a webhook (a Google Apps
  *      Script, a Power Automate flow, Zapier…), with CONTACT_SECRET and a `type` of "pitch"
  *      or "message", so one sheet or flow can take both.
- *   3. With neither, the forms answer "not connected" and point to the email addresses.
+ *   3. With neither, the forms answer "not connected".
  *
  * The keys and the webhook's address never leave the server.
  */

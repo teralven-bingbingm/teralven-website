@@ -205,14 +205,6 @@
   color: var(--fg-3);
 }
 
-.menuFoot {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 10px 20px;
-  align-items: baseline;
-  font-size: 15px;
-}
-
 @media (max-width: 1080px) {
   .links,
   .cta {
