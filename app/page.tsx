@@ -57,7 +57,7 @@ export default function Home() {
 
       <section className="section" data-theme="light">
         <div className="container">
-          <SectionHead kicker="Perspectives" title="Notes from|*the frontier.*" link={{ href: "/perspectives", label: "All perspectives" }} size="m" />
+          <SectionHead kicker="Perspectives" title="Notes from|*the frontier.*" link={PERSPECTIVES.length > 1 ? { href: "/perspectives", label: "All perspectives" } : undefined} size="m" />
           {latest.length === 1 ? (
             <ArticleCard article={latest[0]} large />
           ) : (

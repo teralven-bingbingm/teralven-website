@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import type { CSSProperties } from "react";
 import { Closing } from "@/components/site/closing";
 import { PageHeader } from "@/components/site/page-header";
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
 };
 
 export default function TeamPage() {
+  if (TEAM.length === 0) notFound();
   return (
     <>
       <PageHeader

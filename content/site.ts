@@ -1,3 +1,5 @@
+import { TEAM } from "./team";
+
 /**
  * The firm's name, address on the web and navigation. Everything the header, the footer and
  * the metadata say about Teralven comes from here. The firm has no public mailboxes yet, so the
@@ -31,7 +33,8 @@ export const SITE = {
 export const NAV = [
   { label: "Portfolio", href: "/portfolio" },
   { label: "Focus Areas", href: "/focus" },
-  { label: "Team", href: "/team" },
+  // The team page appears once content/team.ts lists someone.
+  ...(TEAM.length ? [{ label: "Team", href: "/team" }] : []),
   { label: "Perspectives", href: "/perspectives" },
   { label: "Contact", href: "/contact" },
 ] as const;

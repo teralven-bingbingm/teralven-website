@@ -53,30 +53,6 @@ const ARTICLES: Article[] = [
       { type: "p", text: "Rim is opening its doors through a waitlist. We are proud to support the team as they build a studio for everyone who has a story to tell and has never had the means to tell it." },
     ],
   },
-  {
-    slug: "five-principles-for-investing-at-the-frontier",
-    title: "Five principles for investing at the frontier",
-    dek: "How we think about conviction, speed and the long arc of building a company.",
-    category: "Firm",
-    date: "2026-09-15",
-    author: "Teralven Capital",
-    cover: { kind: "glyph", id: "frontier" },
-    body: [
-      { type: "p", text: "Teralven Capital was founded on a simple belief: the most important companies are built by founders who see the frontier before everyone else, and who need partners willing to see it with them. These are the principles that guide how we invest." },
-      { type: "h2", text: "1. Conviction over consensus" },
-      { type: "p", text: "By the time an idea is consensus, it is usually priced. We do our own work, form our own views and are willing to be early, and occasionally wrong, in pursuit of being right about what matters." },
-      { type: "h2", text: "2. Founders first, always" },
-      { type: "p", text: "We earn our place on a cap table by being useful. That means candid feedback, fast answers and showing up in the hard moments, not only the celebratory ones." },
-      { type: "h2", text: "3. Concentration, with care" },
-      { type: "p", text: "We would rather go deep with a small number of companies than spread thin across many. Every investment gets our full attention, from the first board meeting to the last." },
-      { type: "h2", text: "4. Long horizons" },
-      { type: "p", text: "Enduring companies take a decade or more to build. We shape our partnership and our capital for that timeline, and we measure ourselves by what our founders build over it." },
-      { type: "h2", text: "5. Global by default" },
-      { type: "p", text: "Great companies are built for the world from day one. We help our founders reach customers, talent and capital across markets, wherever their ambition takes them." },
-      { type: "quote", text: "We measure ourselves by one thing: the companies our founders build." },
-      { type: "p", text: "If these principles resonate, we would like to hear what you are building." },
-    ],
-  },
 ];
 
 /** Newest first. */

@@ -1,9 +1,12 @@
 import type { FocusId } from "./focus";
 
 /**
- * The team. TODO: these three entries are placeholders — replace each one with a real person
- * (name, role, bio, focus areas and LinkedIn), or delete it. A `photo` is a square picture in
- * public/team/ (for example "/team/jane-doe.jpg"); without one, the card shows initials.
+ * The team. While this list is empty, the Team page and its links stay hidden; add a person and
+ * they appear everywhere. Each entry takes a real name, role, bio, focus areas and LinkedIn. A
+ * `photo` is a square picture in public/team/ (for example "/team/jane-doe.jpg"); without one,
+ * the card shows initials. For example:
+ *
+ *   { name: "Jane Doe", role: "Founding Partner", bio: "…", focus: ["ai", "media"], linkedin: "https://www.linkedin.com/in/…" }
  */
 
 export type Member = {
@@ -15,26 +18,7 @@ export type Member = {
   linkedin?: string;
 };
 
-export const TEAM: Member[] = [
-  {
-    name: "Partner Name",
-    role: "Founding Partner",
-    bio: "A short biography: operating background, previous investments and the areas this partner leads for the firm.",
-    focus: ["ai", "media"],
-  },
-  {
-    name: "Partner Name",
-    role: "Partner",
-    bio: "A short biography: operating background, previous investments and the areas this partner leads for the firm.",
-    focus: ["enterprise", "fintech"],
-  },
-  {
-    name: "Principal Name",
-    role: "Principal",
-    bio: "A short biography: operating background, previous investments and the areas this person covers for the firm.",
-    focus: ["health", "consumer", "frontier"],
-  },
-];
+export const TEAM: Member[] = [];
 
 export const initials = (name: string) =>
   name

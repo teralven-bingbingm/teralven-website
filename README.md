@@ -27,7 +27,7 @@ npm run dev
 | `/` | 首页，顺序为：地平线首屏 → 公司使命与原则 → 七大投资领域 → All investments（被投公司 logo 格子）→ 观点文章 → 创始人 CTA。首屏和 CTA 之间都在"阅读底色"上，所以双色方案只在首屏后、CTA 前各过渡一次 |
 | `/portfolio` | All investments：a16z 式 logo 格子，点击打开右侧 Company Profile 抽屉（公司达到 8 家时自动出现领域筛选和搜索） |
 | `/focus` | 七大投资领域，每个领域的投资逻辑、看重什么、组合公司 |
-| `/team` | 团队 |
+| `/team` | 团队。`content/team.ts` 里有成员时才会出现（现在是空的，所以导航、页脚和 sitemap 里都没有 Team） |
 | `/perspectives` | 观点文章列表，`/perspectives/<slug>` 为文章页 |
 | `/pitch` | 创始人投递项目：四部分申请表（你、公司、融资、项目故事）+ 我们看重什么、之后的流程。导航右上角的 "Pitch us" 按钮就是这里 |
 | `/contact` | 通用联系：留言表单（媒体、LP、招聘等），创始人会被引导到 `/pitch`。网站暂时不公开任何邮箱 |
@@ -82,9 +82,9 @@ npm run dev
 ## 上线前需要替换的占位内容
 
 - [ ] `content/site.ts`：填上 LinkedIn / X 链接（留空则不显示）。网站现在不列任何邮箱，有了公司邮箱再决定要不要公开
-- [ ] `content/team.ts`：三位成员是占位（"Partner Name"），换成真实姓名、职位、简介、LinkedIn；头像放到 `public/team/`，填 `photo` 字段（没有头像时显示姓名首字母）
+- [ ] `content/team.ts`：现在是空的，Team 页因此隐藏。填上真实姓名、职位、简介、LinkedIn 后，Team 页和导航里的 Team 会自动出现；头像放到 `public/team/`，填 `photo` 字段（没有头像时显示姓名首字母）
 - [ ] `content/portfolio.ts`：Rim 的 `stage`（目前写的是 "Early stage"）、`invested`（目前是 2026）；如有创始人信息可填 `builders`
-- [ ] `content/perspectives.ts`：文章的发布日期 `date`
+- [ ] `content/perspectives.ts`：目前只有 Why we invested in Rim 一篇，确认发布日期 `date`、署名，以及 Rim 同意公开这笔投资
 - [ ] `content/legal.ts`：请律师审阅三个法律页面（特别是 Disclosures 和适用法律条款）
 - [ ] 配置联系表单（见下）
 
