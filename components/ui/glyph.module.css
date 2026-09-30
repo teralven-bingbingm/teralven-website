@@ -1,0 +1,82 @@
+.glyph {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  color: var(--fg);
+}
+
+.glyph * {
+  vector-effect: non-scaling-stroke;
+}
+
+.line,
+.soft,
+.faint,
+.accentLine {
+  fill: none;
+  stroke-width: 1;
+}
+
+.line {
+  stroke: currentColor;
+}
+
+.soft {
+  stroke: currentColor;
+  opacity: 0.35;
+}
+
+.faint {
+  stroke: currentColor;
+  opacity: 0.16;
+}
+
+.dash {
+  stroke-dasharray: 2 5;
+}
+
+.accentLine {
+  stroke: var(--accent);
+  stroke-width: 1.3;
+}
+
+.accentFill {
+  fill: var(--accent);
+}
+
+.dot {
+  fill: currentColor;
+  opacity: 0.55;
+}
+
+.node {
+  fill: var(--bg);
+  stroke: currentColor;
+  stroke-width: 1;
+}
+
+.planet {
+  fill: var(--bg);
+  stroke: currentColor;
+  stroke-width: 1;
+}
+
+.spin,
+.spinSlow {
+  transform-box: view-box;
+  transform-origin: 50% 50%;
+}
+
+.animated .spin {
+  animation: turn 140s linear infinite;
+}
+
+.animated .spinSlow {
+  animation: turn 220s linear infinite reverse;
+}
+
+@keyframes turn {
+  to {
+    transform: rotate(360deg);
+  }
+}

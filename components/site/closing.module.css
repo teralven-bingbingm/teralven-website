@@ -1,0 +1,41 @@
+.closing {
+  position: relative;
+  overflow: hidden;
+  min-height: min(92vh, 880px);
+  display: flex;
+  isolation: isolate;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  padding-top: clamp(120px, 14vw, 200px);
+  padding-bottom: 34vh;
+  text-align: center;
+}
+
+.inner :global(.display) {
+  max-width: 26ch;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+@media (max-width: 560px) {
+  .actions a {
+    width: 100%;
+  }
+
+  .actions :global(.button-ghost) {
+    font-size: 14px;
+  }
+}

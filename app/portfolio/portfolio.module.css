@@ -1,0 +1,8 @@
+.all {
+  position: relative;
+  padding-block: clamp(56px, 6vw, 88px) clamp(112px, 12vw, 176px);
+}
+
+.title {
+  margin-bottom: 28px;
+}

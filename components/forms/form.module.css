@@ -1,0 +1,252 @@
+/* The site's forms: the pitch (/pitch) and the message (/contact). Fields are a label in small
+ * capitals over an underlined input, in the ground's colours. */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* A numbered part of a longer form. */
+.part {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.part + .part {
+  margin-top: 28px;
+  padding-top: 36px;
+  border-top: 1px solid var(--line);
+}
+
+.legend {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 0;
+  margin-bottom: 4px;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(22px, 1.8vw, 26px);
+  letter-spacing: -0.01em;
+  color: var(--fg);
+}
+
+.legend :global(.num) {
+  color: var(--accent);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.field > span:first-child {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+
+.field i {
+  font-style: normal;
+  text-transform: none;
+  letter-spacing: 0;
+  opacity: 0.8;
+  margin-left: 6px;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 12px 0;
+  border: 0;
+  border-bottom: 1px solid var(--line-strong);
+  border-radius: 0;
+  background: transparent;
+  font-size: 17px;
+  line-height: 1.4;
+  color: var(--fg);
+  outline: none;
+  transition: border-color 0.3s var(--ease);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.field select {
+  cursor: pointer;
+  padding-right: 28px;
+}
+
+.field select option {
+  color: #0e0f11;
+}
+
+.field select:invalid {
+  color: var(--fg-3);
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 132px;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--fg-3);
+  opacity: 0.8;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-bottom-color: var(--fg);
+}
+
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible {
+  outline: none;
+  box-shadow: 0 1px 0 0 var(--fg);
+}
+
+/* The select's arrow, drawn in the text colour. */
+.select::after {
+  content: "";
+  position: absolute;
+  right: 4px;
+  bottom: 18px;
+  width: 12px;
+  height: 12px;
+  background: var(--fg-3);
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'><path d='M2.5 4.5 6 8l3.5-3.5' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'/></svg>") center / contain no-repeat;
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'><path d='M2.5 4.5 6 8l3.5-3.5' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'/></svg>") center / contain no-repeat;
+  pointer-events: none;
+}
+
+.hint {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--fg-3);
+}
+
+.counter {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--fg-3);
+  font-variant-numeric: tabular-nums;
+}
+
+.consent {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 14px;
+  align-items: start;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--fg-2);
+  cursor: pointer;
+}
+
+.consent input {
+  width: 18px;
+  height: 18px;
+  margin: 2px 0 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.consent a {
+  color: var(--fg);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--line-strong);
+}
+
+.trap {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.submit {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 24px;
+  margin-top: 8px;
+}
+
+.submit button[disabled] {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.note {
+  max-width: 380px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--fg-3);
+}
+
+.error {
+  padding: 14px 16px;
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  font-size: 14.5px;
+  color: var(--accent);
+}
+
+.sent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  padding: clamp(28px, 4vw, 48px);
+  border: 1px solid var(--tile-border);
+  border-radius: 6px;
+  background: var(--tile);
+  box-shadow: var(--tile-shadow);
+}
+
+.sentMark {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 16%, transparent);
+}
+
+.sent button {
+  border: 0;
+  cursor: pointer;
+  padding: 0 0 3px;
+}
+
+@media (max-width: 640px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}

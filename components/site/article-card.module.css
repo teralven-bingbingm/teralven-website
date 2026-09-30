@@ -1,0 +1,95 @@
+.card {
+  min-width: 0;
+}
+
+.link {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  height: 100%;
+}
+
+.cover {
+  position: relative;
+  aspect-ratio: var(--cover-ratio, 4 / 3);
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--bg-2);
+}
+
+.coverGlyph {
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 100%, rgb(var(--glow) / 0.2), transparent 70%),
+    var(--bg-2);
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 1.4s var(--ease);
+}
+
+.glyph {
+  width: 58%;
+  transition: transform 1.4s var(--ease);
+}
+
+.link:hover .image,
+.link:hover .glyph {
+  transform: scale(1.04);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.category {
+  color: var(--accent);
+}
+
+.text :global(.h3),
+.text :global(.display) {
+  transition: color 0.3s var(--ease);
+}
+
+.read {
+  margin-top: 6px;
+  align-self: flex-start;
+}
+
+.link:hover .read {
+  background-size: 100% 1px;
+}
+
+.link:hover .read svg {
+  transform: translateX(4px);
+}
+
+/* The lead story on /perspectives: the cover beside the words. */
+.large .link {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(32px, 4vw, 72px);
+  align-items: center;
+}
+
+.large .cover {
+  aspect-ratio: 16 / 10;
+}
+
+.large .text {
+  gap: 20px;
+}
+
+.large .text :global(.body) {
+  font-size: 18px;
+}
+
+@media (max-width: 900px) {
+  .large .link {
+    grid-template-columns: 1fr;
+  }
+}

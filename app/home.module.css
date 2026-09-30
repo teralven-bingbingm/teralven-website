@@ -1,0 +1,44 @@
+/* Every investment, straight after the horizon, on the same night sky. */
+.portfolio {
+  position: relative;
+  padding-block: clamp(112px, 11vw, 168px) clamp(112px, 12vw, 176px);
+}
+
+.portfolioHead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: clamp(32px, 4vw, 48px);
+}
+
+.divider {
+  margin-bottom: clamp(96px, 12vw, 176px);
+}
+
+.articles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(28px, 3vw, 48px);
+}
+
+/* Two stories share the row, so their pictures grow wider rather than taller. */
+.articles[data-count="2"] {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  --cover-ratio: 16 / 10;
+}
+
+@media (max-width: 900px) {
+  .articles,
+  .articles[data-count="2"] {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+}
+
+@media (max-width: 560px) {
+  .portfolioHead {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

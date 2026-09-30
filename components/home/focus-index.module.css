@@ -1,0 +1,135 @@
+.index {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+  gap: clamp(40px, 5vw, 88px);
+  align-items: start;
+}
+
+.list {
+  border-top: 1px solid var(--line-strong);
+}
+
+.list li {
+  border-bottom: 1px solid var(--line);
+}
+
+.list a {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1.05fr) minmax(0, 1fr) 24px;
+  align-items: center;
+  gap: 24px;
+  padding: 28px 0;
+  transition: padding 0.5s var(--ease), color 0.4s var(--ease);
+}
+
+.title {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(24px, 2.2vw, 34px);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  transition: transform 0.5s var(--ease);
+}
+
+.summary {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--fg-3);
+  transition: color 0.4s var(--ease);
+}
+
+.arrow {
+  color: var(--fg-3);
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.4s var(--ease), transform 0.4s var(--ease), color 0.4s var(--ease);
+}
+
+.on .title {
+  transform: translateX(10px);
+}
+
+.on .summary {
+  color: var(--fg-2);
+}
+
+.on .arrow {
+  opacity: 1;
+  transform: none;
+  color: var(--accent);
+}
+
+.on :global(.num) {
+  color: var(--accent);
+}
+
+/* The specimen plate. */
+.plate {
+  position: sticky;
+  top: calc(var(--nav-h) + 32px);
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 4 / 5;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--bg-2);
+}
+
+.drawings {
+  position: relative;
+  flex: 1;
+}
+
+.glyph {
+  position: absolute;
+  inset: 8% 6%;
+  width: 88%;
+  height: 84%;
+  opacity: 0;
+  transform: scale(0.96) rotate(-4deg);
+  transition: opacity 0.7s var(--ease), transform 1s var(--ease);
+}
+
+.shown {
+  opacity: 1;
+  transform: none;
+}
+
+.caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 1024px) {
+  .index {
+    grid-template-columns: 1fr;
+  }
+
+  .plate {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .list a {
+    grid-template-columns: 40px minmax(0, 1fr) 20px;
+    gap: 6px 16px;
+    padding: 22px 0;
+  }
+
+  .summary {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .arrow {
+    grid-column: 3;
+    grid-row: 1;
+    opacity: 1;
+    transform: none;
+  }
+}

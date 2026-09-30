@@ -1,0 +1,202 @@
+/*
+ * The coordinates of the scene. The box is full-bleed, so horizontal positions are in vw.
+ *   --arc    where the top of the planet crosses the frame, from the top of the box
+ *   --sun    where the light breaks, from the left edge
+ *   --size   the planet's diameter: the bigger it is, the flatter the horizon
+ *   --halo   how far the atmosphere reaches above the limb
+ */
+.horizon {
+  --arc: 76%;
+  --sun: 66vw;
+  --size: 320vw;
+  --halo: 380px;
+  --glow: 1;
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero {
+  --arc: 77%;
+  --sun: 68vw;
+}
+
+.band {
+  --arc: 86%;
+  --sun: 78vw;
+  --size: 380vw;
+  --halo: 300px;
+  --glow: 0.78;
+}
+
+.cta {
+  --arc: 74%;
+  --sun: 50vw;
+  --size: 300vw;
+  --glow: 0.9;
+}
+
+/* Clipped to the frame, so the moving layer stays the size of the screen, not of the planet. */
+.scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  transform: translate3d(0, calc(var(--p, 0) * -9vh), 0);
+  will-change: transform;
+}
+
+/* The warm-to-cool light spilling up from behind the planet. */
+.wash {
+  position: absolute;
+  left: var(--sun);
+  top: var(--arc);
+  width: 170vw;
+  height: 130vh;
+  translate: -50% -50%;
+  background:
+    radial-gradient(closest-side, rgb(var(--hz-warm) / 0.3), rgb(var(--hz-warm) / 0.12) 22%, transparent 50%),
+    radial-gradient(closest-side, rgb(var(--hz-warm) / 0.16), rgb(var(--hz-cool) / 0.1) 46%, rgb(var(--hz-cool) / 0.05) 68%, transparent 100%);
+  opacity: var(--glow);
+  animation: dawn 3.2s var(--ease) both, breathe 11s ease-in-out 3.2s infinite;
+}
+
+.planet {
+  position: absolute;
+  left: 50%;
+  top: var(--arc);
+  width: var(--size);
+  height: var(--size);
+  margin-left: calc(var(--size) / -2);
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse 80vw 46vh at calc(var(--sun) + var(--size) / 2 - 50vw) 0, var(--hz-planet-lit) 0%, var(--hz-planet-mid) 38%, transparent 100%),
+    var(--hz-planet);
+}
+
+/* A fine grid of points on the lit side of the surface, fading into the night. */
+.surface {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background-image: radial-gradient(circle, rgb(var(--hz-dots) / 0.22) 0 0.8px, transparent 1.2px);
+  background-size: 13px 9px;
+  -webkit-mask-image: radial-gradient(ellipse 64vw 26vh at calc(var(--sun) + var(--size) / 2 - 50vw) 0, #000 0%, rgba(0, 0, 0, 0.35) 45%, transparent 100%);
+  mask-image: radial-gradient(ellipse 64vw 26vh at calc(var(--sun) + var(--size) / 2 - 50vw) 0, #000 0%, rgba(0, 0, 0, 0.35) 45%, transparent 100%);
+  opacity: 0.9;
+}
+
+/* The limb and the atmosphere: rings concentric with the planet, lit most near the sun. */
+.halo {
+  position: absolute;
+  left: 50%;
+  top: calc(var(--arc) - var(--halo));
+  width: calc(var(--size) + var(--halo) * 2);
+  height: calc(var(--size) + var(--halo) * 2);
+  margin-left: calc((var(--size) + var(--halo) * 2) / -2);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    transparent calc(var(--size) / 2 - 1.5px),
+    rgb(var(--hz-limb) / 0.98) calc(var(--size) / 2),
+    rgb(var(--hz-warm) / 0.55) calc(var(--size) / 2 + 2px),
+    rgb(var(--hz-warm) / 0.2) calc(var(--size) / 2 + 18px),
+    rgb(var(--hz-cool) / 0.13) calc(var(--size) / 2 + 70px),
+    rgb(var(--hz-cool) / 0.05) calc(var(--size) / 2 + 180px),
+    transparent calc(var(--size) / 2 + var(--halo))
+  );
+  -webkit-mask-image: radial-gradient(ellipse 58vw 70vh at calc(var(--sun) + var(--size) / 2 + var(--halo) - 50vw) var(--halo), #000 0%, rgba(0, 0, 0, 0.5) 42%, rgba(0, 0, 0, 0.16) 100%);
+  mask-image: radial-gradient(ellipse 58vw 70vh at calc(var(--sun) + var(--size) / 2 + var(--halo) - 50vw) var(--halo), #000 0%, rgba(0, 0, 0, 0.5) 42%, rgba(0, 0, 0, 0.16) 100%);
+  opacity: var(--glow);
+  animation: dawn 2.6s var(--ease) 0.25s both;
+}
+
+/* The sun itself, just breaking the limb. */
+.sun {
+  position: absolute;
+  left: var(--sun);
+  top: var(--arc);
+  width: min(52vw, 760px);
+  height: 34px;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, var(--hz-sun) 0%, rgb(var(--hz-limb) / 0.9) 16%, rgb(var(--hz-warm) / 0.38) 46%, transparent 100%);
+  mix-blend-mode: var(--hz-blend);
+  opacity: var(--glow);
+  animation: flare 2.4s var(--ease) 0.6s both, breathe 7s ease-in-out 3s infinite;
+}
+
+/* A thin anamorphic streak through the sun. */
+.streak {
+  position: absolute;
+  left: var(--sun);
+  top: var(--arc);
+  width: min(96vw, 1400px);
+  height: 1px;
+  translate: -50% -50%;
+  background: linear-gradient(90deg, transparent 0%, rgb(var(--hz-warm) / 0.1) 26%, rgb(var(--hz-limb) / 0.85) 50%, rgb(var(--hz-warm) / 0.1) 74%, transparent 100%);
+  mix-blend-mode: var(--hz-blend);
+  opacity: var(--glow);
+  animation: streak 2.8s var(--ease) 0.8s both;
+}
+
+@keyframes dawn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 4vh, 0);
+  }
+  to {
+    opacity: var(--glow);
+    transform: none;
+  }
+}
+
+@keyframes flare {
+  from {
+    opacity: 0;
+    transform: scale(0.2, 0.4);
+  }
+  to {
+    opacity: var(--glow);
+    transform: none;
+  }
+}
+
+@keyframes streak {
+  from {
+    opacity: 0;
+    transform: scaleX(0.1);
+  }
+  to {
+    opacity: var(--glow);
+    transform: none;
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: var(--glow);
+  }
+  50% {
+    opacity: calc(var(--glow) * 0.8);
+  }
+}
+
+@media (max-width: 720px) {
+  .horizon {
+    --size: 460vw;
+    --halo: 240px;
+  }
+
+  .hero {
+    --arc: 80%;
+    --sun: 64vw;
+  }
+
+  .band {
+    --arc: 88%;
+    --sun: 72vw;
+  }
+}

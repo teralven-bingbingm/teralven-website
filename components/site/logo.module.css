@@ -1,0 +1,58 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  line-height: 0;
+}
+
+.mark,
+.word {
+  display: inline-flex;
+}
+
+.navy {
+  display: var(--navy-logo, none);
+}
+
+.cream {
+  display: var(--cream-logo, block);
+}
+
+.logo img {
+  width: auto;
+  max-width: none;
+}
+
+.nav .mark img {
+  height: 40px;
+}
+
+.nav .word img {
+  height: 30px;
+}
+
+.footer {
+  gap: 20px;
+}
+
+.footer .mark img {
+  height: 68px;
+}
+
+.footer .word img {
+  height: 64px;
+}
+
+@media (max-width: 560px) {
+  .nav {
+    gap: 10px;
+  }
+
+  .nav .mark img {
+    height: 34px;
+  }
+
+  .nav .word img {
+    height: 25px;
+  }
+}

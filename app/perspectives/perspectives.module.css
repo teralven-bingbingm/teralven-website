@@ -1,0 +1,14 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 56px clamp(28px, 3vw, 48px);
+  margin-top: clamp(72px, 8vw, 112px);
+  padding-top: clamp(48px, 5vw, 72px);
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

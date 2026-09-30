@@ -1,0 +1,26 @@
+# dependencies
+/node_modules
+
+# next.js
+/.next
+/.next-*
+/out
+
+# production
+/build
+
+# local files
+.DS_Store
+*.log
+*.tsbuildinfo
+.claude/
+
+# typescript (next writes this file on every dev and build)
+next-env.d.ts
+
+# environment variables
+.env*
+!.env.example
+
+# vercel
+.vercel
