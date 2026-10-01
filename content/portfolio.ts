@@ -47,9 +47,9 @@ export const COMPANIES: Company[] = [
   {
     slug: "rim",
     name: "Rim",
-    tagline: "The AI animation studio, directed by you.",
+    tagline: "The AI platform for animated and live-action short dramas.",
     description:
-      "Rim is an AI animation studio for everyone. Type one line, or paste a full script, and a crew of seven AI artists writes, casts, draws and cuts a whole series, while the creator calls the shots at every step. Characters keep their looks and voices from shot to shot, speak many languages, and appear in every screen format.",
+      "Rim lets anyone make a short drama, animated or live-action. Type one line, or paste a full script, and a crew of seven AI artists writes, casts, draws and cuts a whole series, while the creator calls the shots at every step. A finished animated episode takes under ten minutes. Characters keep their looks and voices from shot to shot, speak many languages, and appear in every screen format.",
     focus: ["media", "ai"],
     status: "New",
     stage: "Early stage", // TODO: confirm the round (Pre-seed, Seed…)
