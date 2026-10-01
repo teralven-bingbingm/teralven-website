@@ -32,7 +32,7 @@ export type Article = {
 const ARTICLES: Article[] = [
   {
     slug: "why-we-invested-in-rim",
-    title: "Why we invested in Rim",
+    title: "Why we invested in Rim Universe",
     dek: "The next hit short drama will not need a film set. It will need a crew of AI artists, and a director who has never had access to one before.",
     category: "Portfolio",
     date: "2026-09-29",
@@ -40,7 +40,7 @@ const ARTICLES: Article[] = [
     cover: { kind: "image", src: "/rim-website.png", position: "50% 32%" },
     company: "rim",
     body: [
-      { type: "p", text: "Every few decades, the cost of telling a story with moving pictures collapses. Film gave way to video, and video to the phone in everyone's pocket. Each shift did more than make production cheaper. It changed who got to be a storyteller. We believe we are at the start of the largest of these shifts yet, and that is why Teralven Capital has invested in Rim, an AI platform for animated and live-action short dramas." },
+      { type: "p", text: "Every few decades, the cost of telling a story with moving pictures collapses. Film gave way to video, and video to the phone in everyone's pocket. Each shift did more than make production cheaper. It changed who got to be a storyteller. We believe we are at the start of the largest of these shifts yet, and that is why Teralven Capital has invested in Rim Universe, an AI studio for short dramas, animated or live-action." },
       { type: "h2", text: "A series, not a clip" },
       { type: "p", text: "Most generative video products today make clips: a few seconds of footage from a prompt. They are impressive, but a clip is not a story. A short drama needs characters who look and sound the same from the first shot to the last, places that stay put, props that matter, a script that holds and an edit that brings the audience back for the next episode." },
       { type: "p", text: "Rim is built around that reality. Type a single line, or paste a full script, and a crew of seven AI artists goes to work: a storyteller, a scriptwriter, a character designer, a scene designer, an item designer, a storyboard artist and an editor. Each does the job its title describes, in order, on one shared canvas." },
@@ -52,7 +52,7 @@ const ARTICLES: Article[] = [
       { type: "h2", text: "Every screen, every voice" },
       { type: "p", text: "Audiences no longer watch in one shape. Rim produces in five formats (9:16, 16:9, 1:1, 3:4 and 4:3), and its characters speak many languages, from English and Spanish to Chinese, Japanese and Korean. A short drama made once can travel to every screen and every audience from day one." },
       { type: "h2", text: "What comes next" },
-      { type: "p", text: "Rim is opening its doors through a waitlist. We are proud to support the team as they build a platform for everyone who has a story to tell and has never had the means to tell it." },
+      { type: "p", text: "Rim is opening its doors through a waitlist. We are proud to support the team as they build a studio for everyone who has a story to tell and has never had the means to tell it." },
     ],
   },
 ];

@@ -84,7 +84,7 @@ npm run dev
 - [ ] `content/site.ts`：填上 LinkedIn / X 链接（留空则不显示）。网站现在不列任何邮箱，有了公司邮箱再决定要不要公开
 - [ ] `content/team.ts`：现在是空的，Team 页因此隐藏。填上真实姓名、职位、简介、LinkedIn 后，Team 页和导航里的 Team 会自动出现；头像放到 `public/team/`，填 `photo` 字段（没有头像时显示姓名首字母）
 - [ ] `content/portfolio.ts`：Rim 的 `stage`（目前写的是 "Early stage"）、`invested`（目前是 2026）；如有创始人信息可填 `builders`
-- [ ] `content/perspectives.ts`：目前只有 Why we invested in Rim 一篇，确认发布日期 `date`、署名，以及 Rim 同意公开这笔投资
+- [ ] `content/perspectives.ts`：目前只有 Why we invested in Rim Universe 一篇，确认发布日期 `date`、署名，以及 Rim 同意公开这笔投资
 - [ ] `content/legal.ts`：请律师审阅三个法律页面（特别是 Disclosures 和适用法律条款）
 - [ ] 配置联系表单（见下）
 
