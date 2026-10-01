@@ -55,7 +55,7 @@ export const COMPANIES: Company[] = [
     stage: "Early stage", // TODO: confirm the round (Pre-seed, Seed…)
     invested: "2026",
     milestone: "Pre-launch · Waitlist open",
-    website: "https://rimuniverse.com",
+    website: "https://rimrim.ai",
     logo: { src: `${RIM}/logo.png`, width: 840, height: 611 },
     logoOnLight: { src: `${RIM}/logo-on-light.png`, width: 840, height: 611 },
     mark: { src: `${RIM}/mark.png`, width: 360, height: 413 },
@@ -67,5 +67,5 @@ export type Listed = Company & { news?: News };
 
 export const companyBySlug = (slug: string) => COMPANIES.find(item => item.slug === slug);
 
-/** "rimuniverse.com", for a link's text. */
+/** "rimrim.ai", for a link's text. */
 export const displayUrl = (url: string) => url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");

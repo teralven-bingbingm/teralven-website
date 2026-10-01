@@ -105,7 +105,7 @@ cp .env.example .env.local
 
 ## 投资组合（All investments）
 
-参考 a16z 的 portfolio：方形 logo 格子，格子底部是状态标签（New / Exit / IPO…），悬停微微上浮，点击从右侧滑出 **Company Profile** 抽屉。格子跟着配色走：深色底上是半透明玻璃卡，浅色底上是白色卡片。抽屉里有：领域、完整 logo、公司简介、官网按钮（Rim 是 rimuniverse.com）、里程碑（投资年份、投资时阶段、当前状态）、创始人、投资文章。
+参考 a16z 的 portfolio：方形 logo 格子，格子底部是状态标签（New / Exit / IPO…），悬停微微上浮，点击从右侧滑出 **Company Profile** 抽屉。格子跟着配色走：深色底上是半透明玻璃卡，浅色底上是白色卡片。抽屉里有：领域、完整 logo、公司简介、官网按钮（Rim 是 rimrim.ai）、里程碑（投资年份、投资时阶段、当前状态）、创始人、投资文章。
 
 - 公司 8 家以内时，格子一行 4 个（更大），超过后一行 6 个。
 - 每个公司的 profile 都有自己的链接：`/portfolio#rim` 会直接打开 Rim 的抽屉（Focus 页和文章页就是这样链接过去的）。
